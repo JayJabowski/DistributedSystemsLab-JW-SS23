@@ -38,7 +38,7 @@ public class LabBackEndApplication {
 
 
 		//Get All Todos
-		@GetMapping("/todo")
+		@GetMapping("/todo/")
 		List<Todo> getAllTodos(){
 			List<Todo> allTodos = new ArrayList<Todo>();
 
@@ -62,13 +62,13 @@ public class LabBackEndApplication {
 		}
 
 		//Add new ID
-		@PostMapping("/todo")
+		@PostMapping("/todo/")
 		Todo addNewTodo(@RequestBody Todo newItem){
 			return repo.save(newItem);
 		}
 
 		//Remove ID
-		@DeleteMapping("/todo")
+		@DeleteMapping("/todo/")
 		void removeTodo(@RequestBody Todo todo){
 			repo.delete(todo);
 		}
