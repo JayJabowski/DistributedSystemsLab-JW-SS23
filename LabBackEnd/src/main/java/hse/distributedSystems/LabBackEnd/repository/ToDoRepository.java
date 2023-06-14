@@ -1,4 +1,4 @@
-package hse.distributedSystems.LabBackEnd.persistence;
+package hse.distributedSystems.LabBackEnd.repository;
 
 import org.springframework.data.repository.CrudRepository;
 
@@ -8,6 +8,6 @@ import hse.distributedSystems.LabBackEnd.model.Todo;
 
 
 @Transactional
-public interface ToDoPersistence extends CrudRepository<Todo, Long>{
+public interface ToDoRepository extends CrudRepository<Todo, Long>{
     
 }
