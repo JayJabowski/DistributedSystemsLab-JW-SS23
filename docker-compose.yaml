@@ -2,41 +2,43 @@ version: '0.9'
 
 services:
 
-  postgresdb:
-    build: ./LabDB
-    ports:
-      - "${POSTGRES_PORT}:5432"
+  labdb:
+    container_name: labdb
+    image: postgres:latest
     environment:
-      - POSTGRES_PASSWORD=ToDoApp
-      - POSTGRES_USER=DistributedSystems
-      - POSTGRES_DB=ToDoApp
-      - POSTGRES_PORT=8100
+      POSTGRES_USER: ToDoApp
+      POSTGRES_PASSWORD: DistributedSystems
+      POSTGRES_NAME: ToDoApp
+      POSTGRES_PORT: 8100
+    ports:
+      - "8100:5432"
+    networks:
+      - LabToDo
+    volumes:
+      - labdb:/var/lib/postgres/data
+
+  labbackend:
+    container_name: labbackend
+
+    build: ./LabBackEnd
+    environment:
+      SPRING_PROFILES_ACTIVE: dev
+      BACK_END_PORT: 8090
+      POSTGRES_PORT: 8100
+      FRONT_END_PORT: 8080
+    ports:
+      - 8090:8090
+    depends_on:
+      - labdb
     networks:
       - LabToDo
 
-  todobackend:
-    build: ./
-    ports:
-      - 8080:8080
-    environment:
-      - SPRING_PROFILES_ACTIVE=dev
-    depends_on:
-      - postgresdb
-    networks:
-      - todonet
-
-  todoui:
-    image: todoui:v0.1
-    ports:
-      - "8090:8090"
-    depends_on:
-      - todobackend
-    networks:
-      - todonet
-
 networks:
 
-  todonet:
+  LabToDo:
     driver: bridge
 
-
+volumes:
+  
+  labdb: 
+  
