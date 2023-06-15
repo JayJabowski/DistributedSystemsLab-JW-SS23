@@ -1,20 +1,21 @@
-version: '3.1'
+version: '0.9'
 
 services:
 
   postgresdb:
-    image: postgres:15.2
+    build: ./LabDB
     ports:
-      - "8100:8100"
+      - "${POSTGRES_PORT}:5432"
     environment:
-      - POSTGRES_PASSWORD=password
-      - POSTGRES_USER=matthias
-      - POSTGRES_DB=mydb
+      - POSTGRES_PASSWORD=ToDoApp
+      - POSTGRES_USER=DistributedSystems
+      - POSTGRES_DB=ToDoApp
+      - POSTGRES_PORT=8100
     networks:
-      - todonet
+      - LabToDo
 
   todobackend:
-    image: todobackend:v0.1
+    build: ./
     ports:
       - 8080:8080
     environment:
