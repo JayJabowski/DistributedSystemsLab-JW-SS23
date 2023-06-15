@@ -11,7 +11,7 @@ services:
       POSTGRES_NAME: ToDoApp
       POSTGRES_PORT: 8100
     ports:
-      - "8100:5432"
+      - "5432:5432"
     networks:
       - LabToDo
     volumes:
@@ -19,15 +19,17 @@ services:
 
   labbackend:
     container_name: labbackend
-
+    image: distributedsystemslabbackend:v1
     build: ./LabBackEnd
     environment:
       SPRING_PROFILES_ACTIVE: dev
       BACK_END_PORT: 8090
-      POSTGRES_PORT: 8100
+      POSTGRES_PORT: 5432
       FRONT_END_PORT: 8080
+      POSTGRES_USER: ToDoApp
+      POSTGRES_PASSWORD: DistributedSystems
     ports:
-      - 8090:8090
+      - "8090:8090"
     depends_on:
       - labdb
     networks:
