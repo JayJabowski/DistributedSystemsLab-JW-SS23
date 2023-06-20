@@ -8,6 +8,6 @@ import hse.distributedSystems.LabBackEnd.model.Todo;
 
 
 @Transactional
-public interface ToDoRepository extends CrudRepository<Todo, Long>{
+public interface ToDoRepository extends CrudRepository<Todo, String>{
     
 }

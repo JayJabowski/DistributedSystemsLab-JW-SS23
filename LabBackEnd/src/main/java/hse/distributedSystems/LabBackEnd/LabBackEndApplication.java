@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import hse.distributedSystems.LabBackEnd.model.Todo;
@@ -31,7 +30,7 @@ public class LabBackEndApplication {
 		@Autowired
 		ToDoRepository repo;
 
-		@RequestMapping("/")
+		@GetMapping("/")
 			String greeting() {
 				return "Hi Stranger";
 			}
@@ -48,9 +47,9 @@ public class LabBackEndApplication {
 		}
 
 		//Get Todo By id
-		@GetMapping("/todo/{id}")
-		Todo getTodoById(@PathVariable Long idTodo){
-			Optional<Todo> optTodo = repo.findById(idTodo);
+		@GetMapping("/todo/{todo}")
+		Todo getTodoById(@PathVariable String todo){
+			Optional<Todo> optTodo = repo.findById(todo);
 
 			if(optTodo.isPresent()){
 				return optTodo.get();
@@ -68,9 +67,10 @@ public class LabBackEndApplication {
 		}
 
 		//Remove ID
-		@DeleteMapping("/todo/")
-		void removeTodo(@RequestBody Todo todo){
-			repo.delete(todo);
+		@DeleteMapping("/todo/{todo}")
+		void removeTodo(@PathVariable String todo){
+
+			repo.deleteById(todo);
 		}
 	}
 

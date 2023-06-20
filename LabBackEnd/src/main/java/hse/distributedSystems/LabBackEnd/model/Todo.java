@@ -11,37 +11,37 @@ import jakarta.persistence.Table;
 public class Todo {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-    private String text;
+    private String todo;
+    public int priority = 2;
 
-    public Long getId() {
-        return id;
+    public int getPriority() {
+        return priority;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setPriority(int priority) {
+        this.priority = priority;
     }
 
-    public String getText() {
-        return text;
+    public String getTodo() {
+        return todo;
     }
 
-    public void setTodo(String text) {
-        this.text = text;
+    public void setTodo(String todo, int priority) {
+        this.todo = todo;
+        this.priority = priority;
     }
 
     Todo(){
-        text = "no description given";
+        todo = "no description given";
     }
 
     Todo(String text){
-        this.text = text;
+        this.todo = text;
     }
 
     @Override
     public String toString(){
-        return text+" id:"+id;
+        return todo;
     }
     
 }

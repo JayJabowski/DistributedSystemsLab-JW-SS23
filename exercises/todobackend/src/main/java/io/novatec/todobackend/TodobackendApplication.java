@@ -58,7 +58,7 @@ public class TodobackendApplication {
 		List<String> todos = new ArrayList<String>();
 
 		//for(Todo todo : todoRepository.findAll()) todos.add(todo.getTodo());
-		todoRepository.findAll().forEach(todo -> todos.add(todo.getTodo()));
+		todoRepository.findAll().forEach(todo -> todos.add(text.getText()));
 
 		return todos;
 	}
