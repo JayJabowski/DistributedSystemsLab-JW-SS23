@@ -8,7 +8,7 @@ Just run ```docker-compose up```
 
 # REST-API
 
-you will find a documentation of the REST-API under ``` http://localhost:8090/swagger-ui.html ```
+you will find a documentation of the REST-API under ``` http://localhost:8080/swagger-ui.html ```
 
 # Front-End
 
