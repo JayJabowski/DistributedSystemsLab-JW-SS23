@@ -1,20 +1,20 @@
-### ToDoApp - Lab for Distributed Systems
+# ToDoApp - Lab for Distributed Systems
 ## Summer Semester 2023
 implemented by Jan Wittrowski
 
-## Setup
+# Setup
 
 Just run 
 
 ```docker-compose up```
 
-## REST-API
+# REST-API
 
 you will find a documentation of the REST-API under
 
 ``` http://DOMAIN.OF.BACK.END:PORT.OF.BACK.END/swagger-ui.html ```
 
-## Front-End
+# Front-End
 
 The Front-End can be accessed at 
 
