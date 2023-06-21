@@ -1,5 +1,5 @@
-# ToDoApp - Lab for Distributed Systems
-## Summer Semester 2023
+# ToDoApp
+## Lab for Distributed Systems Summer Semester 2023
 implemented by Jan Wittrowski
 
 # Setup
