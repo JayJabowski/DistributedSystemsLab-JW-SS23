@@ -2,21 +2,26 @@
 ## Summer Semester 2023
 implemented by Jan Wittrowski
 
-## Environment Variables
+## Setup
 
-```
-FRONT_END_PORT : the port the front will be exposed under
-BACK_END_PORT : the port for REST calls to the spring-boot back end
-DB_PORT : the port the db is exposed under
+Just run 
 
-DB_USER : username for the back end to access db
-DB_PASSWORD : password for the back end to access db
-```
+```docker-compose up```
 
 ## REST-API
 
 you will find a documentation of the REST-API under
 
 ``` http://DOMAIN.OF.BACK.END:PORT.OF.BACK.END/swagger-ui.html ```
+
+## Front-End
+
+The Front-End can be accessed at 
+
+```http://localhost:8090```
+
+Enjoy!
+
+
 
 
